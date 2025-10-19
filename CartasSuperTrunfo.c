@@ -1,6 +1,12 @@
 #include <stdio.h>
+#include <locale.h>
+
 
 int main() {
+
+    setlocale (LC_ALL, "PORTUGUESE"); //Permite usar acentos nas palavras
+
+
     // Dados da Carta 1 - Sergipe (Estado 'A' como exemplo)
     char estado1 = 'S';
     char codigocarta1[4] = "A01";
@@ -64,8 +70,34 @@ int main() {
     printf("Numero de pontos turisticos: %d\n", pontos_turisticos2);
     // --- Exibindo os novos resultados da Carta 2 ---
     printf("Densidade Populacional: %.2f hab/km2\n", densidade_populacional2);
-    printf("PIB per Capita: %.2f reais\n", pib_per_capita2);
+    printf("PIB per Capita: %.2f reais\n\n", pib_per_capita2);
     // --- Fim da exibição adicional ---
 
+    // --- LÓGICA DE COMPARAÇÃO DO JOGO ---
+    // Esta é a parte que vamos ajustar para ficar perfeita!
+
+    printf("================================\n");
+    printf("Comparacao de cartas (Atributo: Populacao):\n");
+    printf("================================\n\n");
+
+    // Passo 1: Mostra os valores que estão a ser comparados, como no exemplo.
+    // Usamos as variáveis para que a informação seja sempre correta.
+    printf("Carta 1 - %s: %d habitantes\n", cidade1, populacao1);
+    printf("Carta 2 - %s: %d habitantes\n", cidade2, populacao2);
+    printf("\n"); // Adiciona uma linha em branco para organizar
+
+    // Passo 2: Usa o if/else para declarar o vencedor com base nesses valores.
+    if (populacao1 > populacao2)
+    {
+        // Ao invés de escrever "Sergipe", usamos a variável 'cidade1'.
+        // Fica mais profissional e funciona se mudares os dados da carta.
+        printf("Resultado: A carta de %s foi a vencedora!\n", cidade1);
+    }
+    else
+    {
+        // O mesmo aqui, usamos a variável 'cidade2'.
+        printf("Resultado: A carta de %s foi a vencedora!\n", cidade2);
+    }
+    
     return 0;
 }
